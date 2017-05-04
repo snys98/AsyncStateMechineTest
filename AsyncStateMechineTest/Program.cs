@@ -205,7 +205,7 @@ namespace AsyncStateMechineTest
                     }
                     this.wrap1 = Thread.CurrentThread.ManagedThreadId;
                     this.wrap2 = Thread.CurrentThread.ExecutionContext.GetHashCode();
-                    taskAwaiter = Program.Travle(this.node.Left).GetAwaiter();
+                    taskAwaiter = Program.StateMechineTravle(this.node.Left).GetAwaiter();
                     if (!taskAwaiter.IsCompleted)
                     {
                         this.state = 0;
@@ -236,7 +236,7 @@ namespace AsyncStateMechineTest
                 this.wrap2 = null;
                 this.wrap2 = Thread.CurrentThread.ManagedThreadId;
                 this.wrap1 = Thread.CurrentThread.ExecutionContext.GetHashCode();
-                taskAwaiter = Program.Travle(this.node.Right).GetAwaiter();
+                taskAwaiter = Program.StateMechineTravle(this.node.Right).GetAwaiter();
                 if (!taskAwaiter.IsCompleted)
                 {
                     this.state = 1;
